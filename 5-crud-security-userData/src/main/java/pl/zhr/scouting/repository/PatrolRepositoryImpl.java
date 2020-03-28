@@ -76,3 +76,4 @@ public class PatrolRepositoryImpl implements PatrolRepository {
         currentSession.delete(tempPatrol);
     }
 }
+

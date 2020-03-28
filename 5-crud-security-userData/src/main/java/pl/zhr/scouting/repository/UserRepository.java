@@ -16,5 +16,5 @@ public interface UserRepository{
     void saveOrUpdate(User user, int patrolId);
 
     void deleteUser(int userId);
-
 }
+

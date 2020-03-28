@@ -15,3 +15,4 @@ public interface UserDataRepository {
 
     void deleteUserData(int userId);
 }
+

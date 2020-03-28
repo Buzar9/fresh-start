@@ -16,3 +16,4 @@ public interface PatrolRepository {
 
     void delete(int patrolId);
 }
+
