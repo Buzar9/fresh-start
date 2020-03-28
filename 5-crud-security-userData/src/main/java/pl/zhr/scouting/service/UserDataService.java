@@ -6,3 +6,4 @@ public interface UserDataService {
 
     void updateDataInUser(int userId, UserData userData);
 }
+

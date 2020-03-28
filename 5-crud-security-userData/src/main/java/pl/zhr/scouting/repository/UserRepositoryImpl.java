@@ -54,7 +54,6 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    @Transactional
     public void saveOrUpdate(User tempUser) {
 
         Session currentSession = entityManager.unwrap(Session.class);

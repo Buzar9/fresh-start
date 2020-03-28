@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.zhr.scouting.entity.User;
 import pl.zhr.scouting.repository.UserRepository;
+import pl.zhr.scouting.service.UserService;
 
 
 import java.util.List;
 
 @RestController
 public class UserController {
+
+    @Autowired
+    private UserService userServiceImpl;
 
     @Autowired
     private UserRepository userRepositoryImpl;
@@ -31,16 +35,14 @@ public class UserController {
     @PostMapping("/users")
     public void addUser(@RequestBody User tempUser) {
 
-        tempUser.setUserId(0);
-        userRepositoryImpl.saveOrUpdate(tempUser);
+        userServiceImpl.addUser(tempUser);
     }
 
     @PutMapping("/users/{userId}")
     public void updateUser(@PathVariable int userId,
                            @RequestBody User tempUser) {
 
-        tempUser.setUserId(userId);
-        userRepositoryImpl.saveOrUpdate(tempUser);
+        userServiceImpl.updateUser(userId, tempUser);
     }
 
     @DeleteMapping("/users/{userId}")
