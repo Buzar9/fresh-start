@@ -14,9 +14,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepositoryImpl;
 
-//    todo wywalić wszystkie "/patrols
-//    todo jeżeli request potrzebuje patrolu, dodać osobne mapowanie w PatrolController
-
     @GetMapping("/users")
     public List<User> findAll() {
 

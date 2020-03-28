@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.zhr.scouting.entity.Patrol;
 import pl.zhr.scouting.repository.PatrolRepository;
-import pl.zhr.scouting.repository.PatrolRepositoryImpl;
 
 import java.util.List;
 
@@ -37,9 +36,11 @@ public class PatrolController {
         patrolRepositoryImpl.saveOrUpdate(tempPatrol);
     }
 
-    @PutMapping("/patrols")
-    public void updatePatrol(@RequestBody Patrol tempPatrol) {
+    @PutMapping("/patrols/{patrolId}")
+    public void updatePatrol(@PathVariable int patrolId,
+                             @RequestBody Patrol tempPatrol) {
 
+        tempPatrol.setPatrolId(patrolId);
         patrolRepositoryImpl.saveOrUpdate(tempPatrol);
     }
 

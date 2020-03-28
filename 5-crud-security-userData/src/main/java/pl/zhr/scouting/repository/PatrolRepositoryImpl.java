@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pl.zhr.scouting.entity.Patrol;
 import pl.zhr.scouting.entity.User;
+import pl.zhr.scouting.entity.UserData;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -57,9 +58,9 @@ public class PatrolRepositoryImpl implements PatrolRepository {
         Session currentSession = entityManager.unwrap(Session.class);
         User tempUser = currentSession.get(User.class, userId);
         Patrol tempPatrol = currentSession.get(Patrol.class, patrolId);
-        tempPatrol.addUser(tempUser);
-        tempUser.setPatrolName(tempPatrol);
-        tempUser.setPatrolId(tempPatrol);
+        tempPatrol.addUser(tempUser.getUserDataId());
+        tempUser.getUserDataId().setPatrolId(tempPatrol);
+        tempUser.getUserDataId().setPatrolName(tempPatrol);
     }
 
     @Override
@@ -68,10 +69,10 @@ public class PatrolRepositoryImpl implements PatrolRepository {
 
         Session currentSession = entityManager.unwrap(Session.class);
         Patrol tempPatrol = currentSession.get(Patrol.class, patrolId);
-        List<User> tempUsers = tempPatrol.getUsers();
-        for (User tempUser : tempUsers) {
-            tempUser.setPatrolId(null);
-            tempUser.setPatrolName(null);
+        List<UserData> tempUsersData = tempPatrol.getUsersData();
+        for (UserData singleData : tempUsersData) {
+            singleData.setPatrolId(null);
+            singleData.setPatrolName(null);
         }
         currentSession.delete(tempPatrol);
     }

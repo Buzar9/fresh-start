@@ -17,8 +17,7 @@ public class Patrol {
     private String patrolName;
 
     @OneToMany(mappedBy = "patrolId")
-//            , cascade = CascadeType.REMOVE - usuw patrol i wszystkich users w tym patrolu)
-    private List<User> users;
+    private List<UserData> usersData;
 
     public Patrol() {
     }
@@ -39,19 +38,19 @@ public class Patrol {
         this.patrolName = patrolName;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<UserData> getUsersData() {
+        return usersData;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUsersData(List<UserData> users) {
+        this.usersData = users;
     }
 
-    public void addUser(User tempUser) {
+    public void addUser(UserData tempUserData) {
 
-        if(users == null) users = new ArrayList<>();
-        users.add(tempUser);
-        tempUser.setPatrolId(this);
+        if(usersData == null) usersData = new ArrayList<>();
+        usersData.add(tempUserData);
+        tempUserData.setPatrolId(this);
     }
 }
 

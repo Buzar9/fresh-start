@@ -27,6 +27,14 @@ public class UserData {
                 cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private User user;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patrol_id")
+    private Patrol patrolId;
+
+    @Column(name = "patrol_name")
+    private String patrolName;
+
     public UserData() {
     }
 
@@ -66,6 +74,29 @@ public class UserData {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Patrol getPatrolId() {
+        return patrolId;
+    }
+
+    public void setPatrolId(Patrol patrol) {
+        if(patrolId != null) {
+            patrolId = null;
+        }
+        this.patrolId = patrol;
+    }
+
+    public String getPatrolName() {
+        return patrolName;
+    }
+
+    public void setPatrolName(Patrol patrol) {
+        if (patrol == null) {
+            this.patrolName = null;
+        } else {
+            this.patrolName = patrol.getPatrolName();
+        }
     }
 
     public User getUser() {

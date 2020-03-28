@@ -5,11 +5,16 @@ import org.springframework.web.bind.annotation.*;
 import pl.zhr.scouting.entity.User;
 import pl.zhr.scouting.entity.UserData;
 import pl.zhr.scouting.repository.UserDataRepository;
+import pl.zhr.scouting.repository.UserRepository;
+import pl.zhr.scouting.service.UserDataService;
 
 import java.util.List;
 
 @RestController
 public class UserDataController {
+
+    @Autowired
+    private UserDataService userDataServiceImpl;
 
     @Autowired
     private UserDataRepository userDataRepositoryImpl;
@@ -39,10 +44,10 @@ public class UserDataController {
     }
 
     @PutMapping("/users/{userId}/data")
-    public void updateDatainUser(@PathVariable int userId,
+    public void updateDataInUser(@PathVariable int userId,
                                  @RequestBody UserData tempUserData) {
 
-        userDataRepositoryImpl.saveOrUpdate(tempUserData, userId);
+        userDataServiceImpl.updateDataInUser(userId, tempUserData);
     }
 
     @DeleteMapping("/users/{userId}/data")
