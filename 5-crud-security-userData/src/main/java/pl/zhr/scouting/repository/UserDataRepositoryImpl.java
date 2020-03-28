@@ -48,6 +48,7 @@ public class UserDataRepositoryImpl implements UserDataRepository{
         currentSession.saveOrUpdate(tempUserData);
         tempUser.addData(tempUserData);
         tempUserData.setUser(tempUser);
+        tempUserData.setUsername();
         currentSession.saveOrUpdate(tempUser);
     }
 

@@ -22,6 +22,9 @@ public class UserData {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "username")
+    private String username;
+
     @JsonIgnore
     @OneToOne(mappedBy = "userDataId",
                 cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -75,6 +78,14 @@ public class UserData {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername() {
+        this.username = user.getUsername();
     }
 
     public Patrol getPatrolId() {
