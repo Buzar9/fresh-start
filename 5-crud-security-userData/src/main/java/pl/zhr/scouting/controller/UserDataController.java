@@ -14,7 +14,7 @@ public class UserDataController {
     @Autowired
     private UserDataRepository userDataRepositoryImpl;
 
-    @GetMapping("/patrols/users/data")
+    @GetMapping("/users/data")
     public List<UserData> findAll() {
 
         List<UserData> userDataList = userDataRepositoryImpl.findAll();
@@ -22,7 +22,7 @@ public class UserDataController {
         return userDataList;
     }
 
-    @GetMapping("/patrols/users/{userId}/data")
+    @GetMapping("/users/{userId}/data")
     public UserData findUserDataByUserId (@PathVariable int userId) {
 
         UserData tempUserData = userDataRepositoryImpl.findByUserId(userId);
@@ -30,7 +30,7 @@ public class UserDataController {
         return tempUserData;
     }
 
-    @PostMapping("/patrols/users/{userId}/data")
+    @PostMapping("/users/{userId}/data")
     public void addDataToUser(@PathVariable int userId,
                                 @RequestBody UserData tempUserData){
 
@@ -38,14 +38,14 @@ public class UserDataController {
         userDataRepositoryImpl.saveOrUpdate(tempUserData, userId);
     }
 
-    @PutMapping("/patrols/users/{userId}/data")
+    @PutMapping("/users/{userId}/data")
     public void updateDatainUser(@PathVariable int userId,
                                  @RequestBody UserData tempUserData) {
 
         userDataRepositoryImpl.saveOrUpdate(tempUserData, userId);
     }
 
-    @DeleteMapping("/patrols/users/{userId}/data")
+    @DeleteMapping("/users/{userId}/data")
     public String deleteUserData(@PathVariable int userId){
 
         userDataRepositoryImpl.deleteUserData(userId);

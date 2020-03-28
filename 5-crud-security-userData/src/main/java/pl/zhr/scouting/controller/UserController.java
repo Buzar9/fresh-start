@@ -16,7 +16,6 @@ public class UserController {
 
 //    todo wywalić wszystkie "/patrols
 //    todo jeżeli request potrzebuje patrolu, dodać osobne mapowanie w PatrolController
-//    todo dodać entery na końcu każdego pliku (enter po każdym '}')
 
     @GetMapping("/users")
     public List<User> findAll() {
