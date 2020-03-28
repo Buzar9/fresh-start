@@ -18,13 +18,13 @@ public class UserController {
 //    todo jeżeli request potrzebuje patrolu, dodać osobne mapowanie w PatrolController
 //    todo dodać entery na końcu każdego pliku (enter po każdym '}')
 
-    @GetMapping("/patrols/users")
+    @GetMapping("/users")
     public List<User> findAll() {
 
         return userRepositoryImpl.findAll();
     }
 
-    @GetMapping("/patrols/users/{userId}")
+    @GetMapping("/users/{userId}")
     public User findUserById (@PathVariable(value = "userId") int userId) {
 
         User tempUser = userRepositoryImpl.findByUserId(userId);
@@ -32,22 +32,22 @@ public class UserController {
         return tempUser;
     }
 
-    @PostMapping("/patrols/{patrolId}/users")
-    public void addUser(@PathVariable(value = "patrolId") int patrolId,
-                        @RequestBody User tempUser) {
+    @PostMapping("/users")
+    public void addUser(@RequestBody User tempUser) {
 
         tempUser.setUserId(0);
-        userRepositoryImpl.saveOrUpdate(tempUser, patrolId);
+        userRepositoryImpl.saveOrUpdate(tempUser);
     }
 
-    @PutMapping("/patrols/{patrolId}/users")
-    public void updateUser(@PathVariable(value = "patrolId") int patrolId,
-                            @RequestBody User tempUser) {
+    @PutMapping("/users/{userId}")
+    public void updateUser(@PathVariable int userId,
+                           @RequestBody User tempUser) {
 
-        userRepositoryImpl.saveOrUpdate(tempUser, patrolId);
+        tempUser.setUserId(userId);
+        userRepositoryImpl.saveOrUpdate(tempUser);
     }
 
-    @DeleteMapping("/patrols/users/{userId}")
+    @DeleteMapping("/users/{userId}")
     public String deleteUser(@PathVariable(value = "userId") int userId) {
 
         userRepositoryImpl.deleteUser(userId);

@@ -13,7 +13,7 @@ public interface UserRepository{
 
     Optional<User> findByUsername(String username);
 
-    void saveOrUpdate(User user, int patrolId);
+    void saveOrUpdate(User user);
 
     void deleteUser(int userId);
 }

@@ -55,14 +55,9 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     @Transactional
-    public void saveOrUpdate(User tempUser, int patrolId) {
+    public void saveOrUpdate(User tempUser) {
 
         Session currentSession = entityManager.unwrap(Session.class);
-        Patrol tempPatrol = currentSession.get(Patrol.class, patrolId);
-        currentSession.saveOrUpdate(tempUser);
-        tempPatrol.addUser(tempUser);
-        tempUser.setPatrolId(tempPatrol);
-        tempUser.setPatrolName(tempPatrol);
         currentSession.saveOrUpdate(tempUser);
     }
 
