@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class BookList extends React.Component {
+export default class BookList extends Component {
     render() {
         return (<div className="text-white">Book List</div>);
     }
 
 
 }
-
-export default BookList;
