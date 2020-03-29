@@ -3,6 +3,7 @@ import './App.css';
 import {Container, Row, Col} from 'react-bootstrap';
 import NavigationBar from './components/NavigationBar';
 import Welcome from "./components/Welcome";
+import Footer from './components/Footer';
 
 function App() {
     const marginTop = {
@@ -19,6 +20,7 @@ function App() {
                 </Col>
             </Row>
         </Container>
+        <Footer/>
     </div>
   );
 }
