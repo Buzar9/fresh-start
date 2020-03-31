@@ -11,7 +11,7 @@ import pl.zhr.scouting.service.UserDataService;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class UserDataController {
 
     @Autowired
