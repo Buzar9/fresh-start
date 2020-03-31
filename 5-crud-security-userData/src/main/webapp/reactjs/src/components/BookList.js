@@ -50,13 +50,13 @@ export default class BookList extends Component {
                     <Card.Body>
                         <Table bordered hover striped variant="dark">
                             <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Username</th>
-                                <th>Roles</th>
-                                <th>Data</th>
-                                <th>Actions</th>
-                            </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Username</th>
+                                    <th>Roles</th>
+                                    <th>Data</th>
+                                    <th>Actions</th>
+                                </tr>
                             </thead>
                             <tbody>
                             {this.state.users.length === 0 ?

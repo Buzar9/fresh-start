@@ -6,7 +6,7 @@ import Welcome from "./components/Welcome";
 import Footer from './components/Footer';
 import Book from "./components/Book";
 import BookList from "./components/BookList";
-import UserList from "./components/UsersList";
+import UserList from "./components/UserList";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {

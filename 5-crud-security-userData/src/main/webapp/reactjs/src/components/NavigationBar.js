@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
 import {Link} from "react-router-dom";
+import {faHome} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 export default class NavigationBar extends Component {
@@ -9,7 +11,7 @@ export default class NavigationBar extends Component {
             <Navbar bg="dark" variant="dark">
                 <Link to={"/"} className="navbar-brand">
                 {/*    Ewentualne zrodlo i rozmiar ikonki/ obrazka/ zdjecia - prowadzące na stronę startowa */}
-                    Home
+                    <FontAwesomeIcon icon={faHome} />
                 </Link>
                 <Nav className="mr-auto">
                     <Link to={"/add"} className="nav-link">Add Book </Link>
