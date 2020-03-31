@@ -3,6 +3,8 @@ import {Card, Form, Button, Col} from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSave, faPlusSquare, faUndo} from "@fortawesome/free-solid-svg-icons";
 
+import axios from 'axios';
+
 export default class Book extends Component {
 
     constructor(props) {
@@ -13,7 +15,7 @@ export default class Book extends Component {
     }
 
     initialState = {
-        username:"", password:"", enabled:"", roles:""
+        username: "", password: "", enabled: "", roles: ""
     };
 
     resetBook = () => {
@@ -21,8 +23,23 @@ export default class Book extends Component {
     }
 
     submitBook = event => {
-        alert("Username: " + this.state.username+ "Password: " +this.state.password);
         event.preventDefault();
+
+        const
+        book = {
+            username: this.state.username,
+            password: this.state.password,
+            enabled: this.state.enabled,
+            roles: this.state.roles
+        };
+
+        axios.post("http://localhost:8080/users", book)
+            .then(response => {
+                if(response.data != null) {
+                    this.setState(this.initialState);
+                    alert("Book Saved Successfully")
+                }
+            });
     }
 
     bookChange= event => {
