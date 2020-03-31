@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEdit, faList, faTrash} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import MyToast from "./MyToast";
+import {Link} from "react-router-dom";
 
 export default class BookList extends Component {
 
@@ -42,7 +43,7 @@ export default class BookList extends Component {
         return (
             <div>
                 <div style={{'display':this.state.show ? 'block' : 'none'}}>
-                    <MyToast children={{show:this.state.show, message:'User Deleted Successfully.', type:'danger'}}/>
+                    <MyToast show = {this.state.show} message = {'User Deleted Successfully.'} type = {'danger'}/>
                 </div>
                 <Card className={"border border-dark bg-dark text-white"}>
                     <Card.Header><FontAwesomeIcon icon={faList}/> Book List</Card.Header>
@@ -77,7 +78,7 @@ export default class BookList extends Component {
                                         </td>
                                         <td>
                                             <ButtonGroup>
-                                                <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit}/></Button>{" "}
+                                                <Link to={"edit/"+user.userId} className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faEdit}/></Link>{' '}
                                                 <Button size="sm" variant="outline-danger" onClick={this.deleteUser.bind(this, user.userId)}><FontAwesomeIcon icon={faTrash}/></Button>
                                             </ButtonGroup>
                                         </td>

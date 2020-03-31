@@ -11,8 +11,8 @@ export default class NavigationBar extends Component {
                 {/*    Ewentualne zrodlo i rozmiar ikonki/ obrazka/ zdjecia - prowadzące na stronę startowa */}
                 </Link>
                 <Nav className="mr-auto">
-                    <Link to={"add"} className="nav-link">Add Book</Link>
-                    <Link to={"list"} className="nav-link">Book List </Link>
+                    <Link to={"/add"} className="nav-link">Add Book</Link>
+                    <Link to={"/list"} className="nav-link">Book List </Link>
                 </Nav>
             </Navbar>
         );

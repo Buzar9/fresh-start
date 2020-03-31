@@ -59,10 +59,10 @@ export default class Book extends Component {
         return (
             <div>
                 <div style={{'display':this.state.show ? 'block' : 'none'}}>
-                    <MyToast children={{show:this.state.show, message:'User Saved Successfully.', type:'success'}}/>
+                    <MyToast show = {this.state.show} message = {'User Saved Successfully.'} type = {'success'}/>
                 </div>
                 <Card className={"border border-dark bg-dark text-white"}>
-                    <Card.Header><FontAwesomeIcon icon={faPlusSquare}/> Book List</Card.Header>
+                    <Card.Header><FontAwesomeIcon icon={faPlusSquare}/> Add New User</Card.Header>
                     <Form onReset={this.resetBook} onSubmit={this.submitBook} id="bookFormId">
                         <Card.Body>
                             <Form.Row>
