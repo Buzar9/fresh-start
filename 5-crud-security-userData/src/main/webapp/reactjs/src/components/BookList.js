@@ -21,6 +21,18 @@ export default class BookList extends Component {
             });
     }
 
+    deleteUser = (userId) => {
+        axios.delete("http://localhost:8080/users/" + userId)
+            .then(response => {
+               if(response.data != null) {
+                   alert(response.data);
+                   this.setState({
+                       users: this.state.users.filter(user => user.userId !== userId)
+                   })
+               }
+            });
+    };
+
     render() {
         return (
             <Card className={"border border-dark bg-dark text-white"}>
@@ -57,7 +69,7 @@ export default class BookList extends Component {
                                 <td>
                                     <ButtonGroup>
                                         <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit}/></Button>{" "}
-                                        <Button size="sm" variant="outline-danger"><FontAwesomeIcon icon={faTrash}/></Button>
+                                        <Button size="sm" variant="outline-danger" onClick={this.deleteUser.bind(this, user.userId)}><FontAwesomeIcon icon={faTrash}/></Button>
                                     </ButtonGroup>
                                 </td>
                             </tr>
