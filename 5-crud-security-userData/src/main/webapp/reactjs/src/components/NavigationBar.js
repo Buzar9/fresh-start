@@ -8,7 +8,7 @@ export default class NavigationBar extends Component {
         return (
             <Navbar bg="dark" variant="dark">
                 <Link to={""} className="navbar-brand">
-                {/*    Ewentualne zrodlo i rozmiar ikonki/ obrazka/ zdjecia */}
+                {/*    Ewentualne zrodlo i rozmiar ikonki/ obrazka/ zdjecia - prowadzące na stronę startowa */}
                 </Link>
                 <Nav className="mr-auto">
                     <Link to={"add"} className="nav-link">Add Book</Link>
